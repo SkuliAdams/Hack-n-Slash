@@ -59,7 +59,7 @@ public class DatabaseReader
 		return (max + 1);
 	}
 
-	public static void SetLevel(Tile[,] oldLevelMap, Tile[,] levelMap, List<Unit> unitList, int levelNum)
+	public static void SetLevel(Tile[,] levelMap, List<Unit> unitList, int levelNum)
 	{
 		Stopwatch timer = new Stopwatch();
 		timer.Start();
@@ -83,10 +83,7 @@ public class DatabaseReader
 						{
 							for (int y = 0; y < levelMap.GetLength(1); y++)
 							{
-								if (!levelMap[x, y].Equals(oldLevelMap[x, y]))
-								{
-									xyPairs.Add(new Vector2(x, y));
-								}
+								xyPairs.Add(new Vector2(x, y));
 							}
 						}
 

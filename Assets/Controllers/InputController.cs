@@ -144,8 +144,7 @@ public class InputController : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.S) && Input.GetKey(KeyCode.LeftAlt))
 		{
-			DatabaseReader.SetLevel(LevelController.Instance.Level.OldTiles, LevelController.Instance.Level.Tiles, LevelController.Instance.Level.Units, LevelController.Instance.Level.LevelNum);
-			LevelController.Instance.Level.UpdateOldMap();
+			DatabaseReader.SetLevel(LevelController.Instance.Level.Tiles, LevelController.Instance.Level.Units, LevelController.Instance.Level.LevelNum);
 		}
 
 		if (Input.GetKeyDown(KeyCode.U))
