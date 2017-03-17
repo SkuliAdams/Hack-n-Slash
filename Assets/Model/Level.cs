@@ -5,20 +5,11 @@ using UnityEngine;
 
 public class Level
 {
-	Tile[,] oldTiles;
 	Tile[,] tiles;
 	List<Unit> units;
 	int width;
 	int height;
 	int levelNum;
-
-	public Tile[,] OldTiles
-	{
-		get
-		{
-			return oldTiles;
-		}
-	}
 
 	public Tile[,] Tiles
 	{
@@ -66,7 +57,6 @@ public class Level
 		this.height = 64;
 		this.levelNum = levelNum;
 
-		oldTiles = DatabaseReader.GetLevel(levelNum, this);
 		tiles = DatabaseReader.GetLevel(levelNum, this);
 		units = DatabaseReader.GetUnits(levelNum, this);
 
@@ -119,17 +109,6 @@ public class Level
 		{
 			GetUnit(x, y).Type = new UnitType();
 			units.Remove(GetUnit(x, y));
-		}
-	}
-
-	public void UpdateOldMap()
-	{
-		for (int x = 0; x < tiles.GetLength(0); x++)
-		{
-			for (int y = 0; y < tiles.GetLength(1); y++)
-			{
-				oldTiles[x, y] = tiles[x, y].Copy();
-			}
 		}
 	}
 
